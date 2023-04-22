@@ -84,7 +84,7 @@ export default function TextForm(props) {
     }
 
     const len=(text)=>{
-        if(text == ""){
+        if(text === ""){
             return 0;
         }
         else if(text.charAt(text.length-1)===" "){
@@ -96,7 +96,7 @@ export default function TextForm(props) {
     } 
 
     const btnstyle=(mode)=>{
-        if(mode=='purple'){
+        if(mode==='purple'){
             return{
             backgroundColor: '#59359a',
             color:"white"
@@ -106,7 +106,7 @@ export default function TextForm(props) {
     }
 
     const textstyle=(mode)=>{
-        if(mode=='purple'){
+        if(mode==='purple'){
             return{
             color:"#59359a"
             }
