@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 
 export default function Navbar(props) {
     return (
-        <nav className ={ `navbar border-bottom border-${props.mode==='light'?'dark':'light'} navbar-expand-lg navbar-${props.mode} bg-${props.mode}` }>
+        <nav className ={ ` border-bottom border-${props.mode==='light'?'dark':'light'} navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}` }>
+            {/* border-bottom border-${props.mode==='light'?'dark':'light'} add this in above class name for bottom border of navbar */}
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">{props.title}</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -2,30 +2,35 @@ import React, {useState} from 'react'
 
 
 export default function TextForm(props) {
+    
     const handleUpClick = ()=>{
          setTempText(text);
         // console.log("Uppercase was clicked: " +  text);
         let newText = text.toUpperCase();
         setText(newText)
         //console.log(tempText)
+        props.showAlert("Text is converted to uppercase.!!!","success");
     }
 
     const speak = () => {
         let msg = new SpeechSynthesisUtterance();
         msg.text = text;
         window.speechSynthesis.speak(msg);
+        props.showAlert("Speaking....","success");
       }
     
     const handelundo = () =>{
         setTempText(text);
         setText(tempText)
         console.log(tempText)
+        props.showAlert("Last text retrieved..!!!","success");
     }
     const handleonclear = () =>{
         setTempText(text);
         let newText = " ";
         setText(newText)
         console.log(tempText)
+        props.showAlert("Text is cleared!!!","success");
     }
 
     const handleLowClick = () =>{
@@ -33,6 +38,7 @@ export default function TextForm(props) {
         let newText = text.toLowerCase();
         setText(newText)
         console.log(tempText)
+        props.showAlert("Text is converted to lowercase..!!!","success");
     }
 
     const handleOnChange = (event)=>{
@@ -46,6 +52,7 @@ export default function TextForm(props) {
         let newText =text.replace(fWord,rWord);
         console.log(newText)
         setText(newText)
+        props.showAlert("Text Replaced successfully.!!!","success");
     }
 
     const handlefWord = (event) =>{
@@ -67,11 +74,13 @@ export default function TextForm(props) {
         text.select();
         text.setSelectionRange(0, 9999);
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Text Copied.!!!","success");
     }
 
     const handleExtraSpaces = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "))
+        props.showAlert("All Extra spaces are removed from the text.","success");
     }
 
 
