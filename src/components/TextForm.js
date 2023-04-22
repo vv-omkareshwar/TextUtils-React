@@ -84,9 +84,9 @@ export default function TextForm(props) {
     return (
         <>
             <div> 
-                <h1>{props.heading}</h1>
+                <h1 className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>{props.heading}</h1>
                 <div className="mb-3"> 
-                <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+                <textarea className={` form-control text-${props.mode === 'light' ? 'dark' : 'light'}`} style={{backgroundColor : props.mode === 'dark'?'grey':'white'}} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
                 <button className="btn btn-primary mx-1" onClick={handleonclear}>Clear</button>
                 <button className="btn btn-primary mx-1" onClick={handelundo}>UNDO</button>
@@ -97,7 +97,7 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
             </div>
 
-            <div className="container my-3 ">
+            <div className={`container my-3 text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                 <div className="container py-5 border">
                     Find word : 
                     <input onChange={handlefWord} className='mx-2' type="text" value={fWord}/>
@@ -110,7 +110,7 @@ export default function TextForm(props) {
                 <p>{text.split(" ").length} words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").length} Minutes needed</p>
                 <h2>Preview</h2>
-                <p>{text}</p>
+                <p>{text === "" ? "Enter something in the text box above to preview it here" : text}</p>
             </div>
         </>
     )
