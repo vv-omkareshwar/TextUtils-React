@@ -5,10 +5,8 @@ export default function TextForm(props) {
     
     const handleUpClick = ()=>{
          setTempText(text);
-        // console.log("Uppercase was clicked: " +  text);
         let newText = text.toUpperCase();
         setText(newText)
-        //console.log(tempText)
         props.showAlert("Text is converted to uppercase.!!!","success");
     }
 
@@ -42,10 +40,8 @@ export default function TextForm(props) {
     }
 
     const handleOnChange = (event)=>{
-        // console.log("On change");
         setTempText(text);
         setText(event.target.value)
-        //console.log(tempText)
     }
 
     const handlereplace = () =>{
@@ -69,11 +65,7 @@ export default function TextForm(props) {
     }
 
     const handleCopy = () => {
-        console.log("I am copy");
-        var text = document.getElementById("myBox");
-        text.select();
-        navigator.clipboard.writeText(text.value);
-        document.getSelection().removeAllRanges();
+        navigator.clipboard.writeText(text);
         props.showAlert("Text Copied to Clipboard.!!!","success");
     }
 
@@ -82,18 +74,6 @@ export default function TextForm(props) {
         setText(newText.join(" "))
         props.showAlert("All Extra spaces are removed from the text.","success");
     }
-
-    const len=(text)=>{
-        if(text === ""){
-            return 0;
-        }
-        else if(text.charAt(text.length-1)===" "){
-            return text.split(" ").length-1;
-        }
-        else{
-            return text.split(" ").length;
-        }
-    } 
 
     const btnstyle=(mode)=>{
         if(mode==='purple'){
@@ -119,8 +99,6 @@ export default function TextForm(props) {
     const [tempText,setTempText] = useState('');
     const [fWord, setfWord] = useState("");
     const [rWord, setrWord] = useState("");
-    // text = "new text"; // Wrong way to change the state
-    // setText("new text"); // Correct way to change the state
     return (
         <>
             <div> 
@@ -147,8 +125,8 @@ export default function TextForm(props) {
                     <button style={btnstyle(props.mode)} disabled={fWord.length===0} className="btn btn-primary mx-1 my-1" onClick={handleRClear}> Clear </button>
                 </div>
                 <h2 className='my-2'>Yout text summary</h2>
-                <p>{len(text)} words and {text.length} characters</p>
-                <p>{0.008 * len(text)} Minutes needed</p>
+                <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+                <p>{0.008 * text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Minutes needed</p>
                 <h2>Preview</h2>
                 <p>{text === "" ? "Nothing to preview.!!" : text}</p>
             </div>

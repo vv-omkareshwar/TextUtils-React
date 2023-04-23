@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
  
 function App() {
-  const [mode, setMode] = useState('light');//darkmode enable or not
+  const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message,type)=> {
@@ -23,19 +23,6 @@ function App() {
       setAlert(null)
     }, 1500);
   }
-
-  // const toggleMode = () =>{
-  //   if(mode === 'light'){
-  //     setMode("dark");
-  //     document.body.style.backgroundColor = '#042743';
-  //     showAlert("Dark mode has been enabled","success");
-  //   }
-  //   else{
-  //     setMode('light');
-  //     document.body.style.backgroundColor = 'white';
-  //     showAlert("Light mode has been enabled","success");
-  //   }
-  // }
 
   const togglePMode = () =>{
       setMode("purple");
@@ -59,8 +46,6 @@ function App() {
   return (
     <>
     <Router>
-      {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
-      {/* <Navbar/> */}
       <Navbar title="TextUtils" mode={mode} toggleDMode={toggleDMode} toggleLMode={toggleLMode} togglePMode={togglePMode}/>
       <Alert alert = {alert}/>
       <div className="container my-3">
@@ -74,8 +59,6 @@ function App() {
           Remove Extra Spaces and Many more.." mode={mode} toggleDMode={toggleDMode} toggleLMode={toggleLMode} togglePMode={togglePMode}/>
           </Route>
         </Switch>
-        
-        {/* <About/> */}
       </div>
     </Router>
     </> 
