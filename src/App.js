@@ -66,11 +66,12 @@ function App() {
       <div className="container my-3">
       <Switch>
           <Route exact path="/about">
-            <About />
+            <About mode={mode} toggleDMode={toggleDMode} toggleLMode={toggleLMode} togglePMode={togglePMode}/>
           </Route>
 
           <Route exact path="/">
-          <TextForm showAlert={showAlert}  heading="Enter the text to analyze below" mode={mode} toggleDMode={toggleDMode} toggleLMode={toggleLMode} togglePMode={togglePMode}/>
+          <TextForm showAlert={showAlert}  heading="TextUtils - Word Counter, Character Counter,
+          Remove Extra Spaces and Many more.." mode={mode} toggleDMode={toggleDMode} toggleLMode={toggleLMode} togglePMode={togglePMode}/>
           </Route>
         </Switch>
         

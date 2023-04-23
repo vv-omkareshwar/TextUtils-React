@@ -72,9 +72,9 @@ export default function TextForm(props) {
         console.log("I am copy");
         var text = document.getElementById("myBox");
         text.select();
-        text.setSelectionRange(0, 9999);
         navigator.clipboard.writeText(text.value);
-        props.showAlert("Text Copied.!!!","success");
+        document.getSelection().removeAllRanges();
+        props.showAlert("Text Copied to Clipboard.!!!","success");
     }
 
     const handleExtraSpaces = () => {
@@ -126,31 +126,31 @@ export default function TextForm(props) {
             <div> 
                 <h1 className={`text-${props.mode === 'dark' ? 'light' : 'dark'}`}>{props.heading}</h1>
                 <div className="mb-3"> 
-                <textarea className={` form-control text-${props.mode === 'dark' ? 'light' : 'dark'}`} style={{backgroundColor : props.mode === 'dark'?'grey':'white'}} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+                <textarea className={` form-control text-${props.mode === 'dark' ? 'light' : 'dark'}`} style={{backgroundColor : props.mode === 'dark'?'#6c757d':'white'}} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
-                <button style={btnstyle(props.mode)} className="btn btn-primary mx-1" onClick={handleonclear}>Clear</button>
-                <button style={btnstyle(props.mode)} className="btn btn-primary mx-1" onClick={handelundo}>UNDO</button>
-                <button style={btnstyle(props.mode)} className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
-                <button style={btnstyle(props.mode)} className="btn btn-primary mx-1" onClick={handleLowClick}>Convert to Lowercase</button>
-                <button style={btnstyle(props.mode)} className="btn btn-primary mx-1" onClick={speak}> Speak </button>
-                <button style={btnstyle(props.mode)} className="btn btn-primary mx-1" onClick={handleCopy}>Copy Text</button>
-                <button style={btnstyle(props.mode)} className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+                <button style={btnstyle(props.mode)} disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleonclear}>Clear</button>
+                <button style={btnstyle(props.mode)} disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handelundo}>UNDO</button>
+                <button style={btnstyle(props.mode)} disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Uppercase</button>
+                <button style={btnstyle(props.mode)} disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>Convert to Lowercase</button>
+                <button style={btnstyle(props.mode)} disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={speak}> Speak </button>
+                <button style={btnstyle(props.mode)} disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
+                <button style={btnstyle(props.mode)} disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
             </div>
 
             <div style={textstyle(props.mode)} className={`container my-3 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
                 <div className={`container py-5 border border-2 border-${props.mode === 'dark' ? 'light' : 'dark'}`}>
-                    Find word : 
-                    <input onChange={handlefWord} className='mx-2' type="text" value={fWord}/>
-                    Replace word :
-                    <input onChange={handlerWord} className='mx-2' type="text" value={rWord} />
-                    <button style={btnstyle(props.mode)} className="btn btn-primary mx-1" onClick={handlereplace}> Replace </button>
-                    <button style={btnstyle(props.mode)} className="btn btn-primary mx-1" onClick={handleRClear}> Clear </button>
+                    Find : 
+                    <input onChange={handlefWord} className='mx-2 my-1' type="text" value={fWord}/>
+                    Replace :
+                    <input onChange={handlerWord} className='mx-2 my-2' type="text" value={rWord} />
+                    <button style={btnstyle(props.mode)} disabled={fWord.length===0} className="btn btn-primary mx-1 my-1" onClick={handlereplace}> Replace </button>
+                    <button style={btnstyle(props.mode)} disabled={fWord.length===0} className="btn btn-primary mx-1 my-1" onClick={handleRClear}> Clear </button>
                 </div>
-                <h2>Yout text summary</h2>
+                <h2 className='my-2'>Yout text summary</h2>
                 <p>{len(text)} words and {text.length} characters</p>
-                <p>{0.008 * text.split(" ").length} Minutes needed</p>
+                <p>{0.008 * len(text)} Minutes needed</p>
                 <h2>Preview</h2>
-                <p>{text === "" ? "Enter something in the text box above to preview it here" : text}</p>
+                <p>{text === "" ? "Nothing to preview.!!" : text}</p>
             </div>
         </>
     )
