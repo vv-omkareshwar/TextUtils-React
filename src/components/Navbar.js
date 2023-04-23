@@ -28,10 +28,6 @@ export default function Navbar(props) {
                             <Link className="nav-link" to="/about">{props.aboutText}</Link>
                         </li>
                     </ul>
-                    <form className="d-flex">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-primary" type="submit">Search</button>
-                    </form>
                     <div style={{backgroundColor :'white'}} class="mx-3 btn-group" role="group" aria-label="Basic radio toggle button group">
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"  onClick={props.toggleLMode}/>
                         <label class="btn btn-outline-primary" htmlFor="btnradio1">Light Mode</label>
