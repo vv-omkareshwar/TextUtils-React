@@ -54,7 +54,7 @@ function App() {
             <About mode={mode} toggleDMode={toggleDMode} toggleLMode={toggleLMode} togglePMode={togglePMode}/>
           </Route>
 
-          <Route exact path="/">
+          <Route exact path="/TextUtils-React">
           <TextForm showAlert={showAlert}  heading="TextUtils - Word Counter, Character Counter,
           Remove Extra Spaces and Many more.." mode={mode} toggleDMode={toggleDMode} toggleLMode={toggleLMode} togglePMode={togglePMode}/>
           </Route>
