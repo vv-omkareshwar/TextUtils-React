@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .app {
+    @apply text-center;
+  }
+
+  .app-logo {
+    @apply h-40 pointer-events-none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .app-logo {
+      @apply animate-spin-slow;
+    }
+  }
+
+  .app-header {
+    @apply bg-gray-800 min-h-screen flex flex-col items-center justify-center text-xl text-white;
+  }
+
+  .app-link {
+    @apply text-cyan-400;
+  }
+
+  .blank {
+    @apply text-blue-600;
+  }
+
+  .accordion-button::after {
+    @apply invert;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
