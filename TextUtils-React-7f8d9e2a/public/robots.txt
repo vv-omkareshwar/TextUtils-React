@@ -1,0 +1,12 @@
+# robots.txt for TextUtils React Application
+
+# Allow all web crawlers to access all content
+User-agent: *
+Allow: /
+
+# Disallow access to any sensitive directories (if any)
+# Disallow: /private/
+# Disallow: /admin/
+
+# Sitemap location (if applicable)
+# Sitemap: https://yourdomain.com/sitemap.xml
