@@ -1,0 +1,28 @@
+{
+  "name": "TextUtils - Text Manipulation Tool",
+  "short_name": "TextUtils",
+  "description": "A utility for manipulating and analyzing text, including features like word counting, character counting, and case conversion.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "scope": "/",
+  "lang": "en-US"
+}
