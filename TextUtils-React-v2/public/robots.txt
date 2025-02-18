@@ -1,0 +1,22 @@
+# robots.txt file for TextUtils React Application
+# This file provides instructions for web crawlers and search engine bots
+
+# Allow all crawlers
+User-agent: *
+
+# Allow access to all pages by default
+Allow: /
+
+# Disallow access to admin area (if it exists)
+Disallow: /admin/
+
+# Disallow access to API endpoints (if they exist in public folder)
+Disallow: /api/
+
+# Disallow access to development and test routes
+Disallow: /dev/
+Disallow: /test/
+
+# Location of the sitemap file
+# Replace example.com with the actual domain of your TextUtils application
+Sitemap: https://www.example.com/sitemap.xml

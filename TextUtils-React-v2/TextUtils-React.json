@@ -1,0 +1,39 @@
+{
+  "apiConfig": {
+    "baseUrl": "https://api.textutils.com",
+    "timeout": 5000
+  },
+  "features": {
+    "enableTextToSpeech": true,
+    "enableFindReplace": true,
+    "enableUndoRedo": true
+  },
+  "textProcessing": {
+    "maxCharacterLimit": 5000,
+    "defaultCase": "lowercase"
+  },
+  "themes": {
+    "light": {
+      "backgroundColor": "#ffffff",
+      "textColor": "#000000",
+      "primaryColor": "#007bff"
+    },
+    "dark": {
+      "backgroundColor": "#343a40",
+      "textColor": "#ffffff",
+      "primaryColor": "#17a2b8"
+    },
+    "purple": {
+      "backgroundColor": "#563d7c",
+      "textColor": "#ffffff",
+      "primaryColor": "#9461fb"
+    }
+  },
+  "alerts": {
+    "displayDuration": 3000
+  },
+  "about": {
+    "version": "2.0.0",
+    "description": "TextUtils is a word counter and character counting utility which can be used to manipulate your text in the way you want."
+  }
+}
