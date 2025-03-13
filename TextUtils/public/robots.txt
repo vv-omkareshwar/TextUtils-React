@@ -1,0 +1,10 @@
+# robots.txt for TextUtils React Application
+# This file instructs web crawlers about which parts of the site should be crawled
+
+# Allow all crawlers to access everything
+User-agent: *
+Allow: /
+
+# Note: As this is a single-page React application, all routes are typically
+# handled by the frontend and are meant to be public. If you add any private
+# or admin routes in the future, consider updating this file to disallow those specific paths.
