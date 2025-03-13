@@ -1,0 +1,29 @@
+{
+  "name": "TextUtils - Text Manipulation Tool",
+  "short_name": "TextUtils",
+  "icons": [
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#007bff",
+  "background_color": "#ffffff",
+  "description": "A powerful tool for manipulating and analyzing text with various utilities",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en-US"
+}
