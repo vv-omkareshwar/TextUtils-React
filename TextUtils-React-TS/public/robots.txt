@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# This robots.txt file allows all web crawlers to access all parts of the site
+# As this is a React application, most content is likely public-facing and should be indexable
