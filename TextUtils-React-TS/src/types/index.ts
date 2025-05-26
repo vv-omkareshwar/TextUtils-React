@@ -53,4 +53,4 @@ export type ShowAlertFunction = (message: string, type: Alert['type']) => void;
 export type ToggleModeFunction = (newMode: Mode) => void;
 
 // Export the SpeechRecognitionResult type if it's used elsewhere
-export type { SpeechRecognitionResult };
+export { SpeechRecognitionResult };

@@ -63,17 +63,6 @@ interface SpeechRecognition extends EventTarget {
   onspeechend: ((this: SpeechRecognition, ev: Event) => any) | null;
 }
 
-interface SpeechGrammarList {
-  readonly length: number;
-  item(index: number): SpeechGrammar;
-  [index: number]: SpeechGrammar;
-}
-
-interface SpeechGrammar {
-  src: string;
-  weight: number;
-}
-
 interface SpeechRecognitionResult {
   readonly length: number;
   item(index: number): SpeechRecognitionAlternative;
@@ -83,12 +72,6 @@ interface SpeechRecognitionResult {
 interface SpeechRecognitionAlternative {
   readonly transcript: string;
   readonly confidence: number;
-}
-
-interface SpeechRecognitionResultList {
-  readonly length: number;
-  item(index: number): SpeechRecognitionResult;
-  [index: number]: SpeechRecognitionResult;
 }
 
 interface SpeechRecognitionEvent extends Event {
@@ -123,6 +106,7 @@ declare global {
     SpeechSynthesisUtterance: {
       new(text?: string): SpeechSynthesisUtterance;
     };
+    speechSynthesis: SpeechSynthesis;
     SpeechRecognition: {
       new(): SpeechRecognition;
     };
@@ -133,7 +117,7 @@ declare global {
 }
 
 // Export main interfaces
-export type {
+export {
   SpeechSynthesisUtterance,
   SpeechSynthesisVoice,
   SpeechSynthesis,
