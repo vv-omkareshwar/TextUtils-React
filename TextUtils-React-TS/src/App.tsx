@@ -39,15 +39,18 @@ const App: React.FC = () => {
   return (
     <Router>
       <Navbar 
+        aboutText='About'
         title="TextUtils" 
         mode={mode} 
-        toggleMode={toggleMode}
+        toggleLMode={() => toggleMode('light')}
+        toggleDMode={() => toggleMode('dark')}
+        togglePMode={() => toggleMode('purple')}
       />
       <Alert alert={alert} />
       <div className="container my-3">
         <Routes>
           <Route path="/about" element={<About mode={mode} />} />
-          <Route path="/TextUtils-React" element={
+          <Route path="/" element={
             <TextForm 
               showAlert={showAlert}  
               heading="TextUtils - Word Counter, Character Counter, Remove Extra Spaces and Many more.." 

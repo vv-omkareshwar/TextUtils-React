@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { TextManipulationFunctions } from '../types';
 
 interface TextFormProps {
     heading: string;
@@ -15,36 +14,32 @@ const TextForm: React.FC<TextFormProps> = (props) => {
 
     const handleUpClick = () => {
         setTempText(text);
-        let newText = text.toUpperCase();
+        const newText = text.toUpperCase();
         setText(newText);
         props.showAlert("Text is converted to uppercase.!!!", "success");
     }
 
     const speak = () => {
-        let msg = new SpeechSynthesisUtterance();
+        const msg = new SpeechSynthesisUtterance();
         msg.text = text;
         window.speechSynthesis.speak(msg);
         props.showAlert("Speaking....", "success");
     }
 
     const handleUndo = () => {
-        setTempText(text);
         setText(tempText);
-        console.log(tempText);
         props.showAlert("Last text retrieved..!!!", "success");
     }
 
     const handleOnClear = () => {
         setTempText(text);
-        let newText = " ";
-        setText(newText);
-        console.log(tempText);
+        setText('');
         props.showAlert("Text is cleared!!!", "success");
     }
 
     const handleLowClick = () => {
         setTempText(text);
-        let newText = text.toLowerCase();
+        const newText = text.toLowerCase();
         setText(newText);
         console.log(tempText);
         props.showAlert("Text is converted to lowercase..!!!", "success");
@@ -56,7 +51,7 @@ const TextForm: React.FC<TextFormProps> = (props) => {
     }
 
     const handleReplace = () => {
-        let newText = text.replace(fWord, rWord);
+        const newText = text.replace(fWord, rWord);
         console.log(newText);
         setText(newText);
         props.showAlert("Text Replaced successfully.!!!", "success");
@@ -81,7 +76,7 @@ const TextForm: React.FC<TextFormProps> = (props) => {
     }
 
     const handleExtraSpaces = () => {
-        let newText = text.split(/[ ]+/);
+        const newText = text.split(/[ ]+/);
         setText(newText.join(" "));
         props.showAlert("All Extra spaces are removed from the text.", "success");
     }
